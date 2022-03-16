@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
    const float RayDistance = 10f;
-   [SerializeField]KeyCode forward,backwards,left,right;
+   [SerializeField]KeyCode forward,left, backwards, right;
    [SerializeField]KeyCode jump = KeyCode.Space;
    [SerializeField]float moveSpeed = 500f;
    [SerializeField]float jumpForce = 1000f;
