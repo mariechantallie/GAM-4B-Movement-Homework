@@ -2,22 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap : MonoBehaviour
-{
-    
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
-    }
-
+public class Trap : MonoBehaviour{
+[SerializeField] TrapEvent onTrapTriggered;
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("It works");
+        var data = new TrapData()
+        {
+            TriggeredPosition =transform.position
+        };
+        onTrapTriggered.TrapTriggered(data);
 
     }
 }
