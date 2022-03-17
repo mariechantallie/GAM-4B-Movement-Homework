@@ -36,8 +36,8 @@ public class BallSpawner : MonoBehaviour
         float minX = -transform.localScale.x;
         float maxX = transform.localScale.x;
 
-        float minZ = -transform.position.z;
-        float maxZ = transform.position.z;
+        float minZ = -transform.localScale.z;
+        float maxZ = transform.localScale.z;
                           
         Vector3 result = transform.position;
         result.x = Random.Range(minX, maxX);

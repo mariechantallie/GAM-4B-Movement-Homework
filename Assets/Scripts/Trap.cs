@@ -13,4 +13,12 @@ public class Trap : MonoBehaviour{
         onTrapTriggered.TrapTriggered(data);
 
     }
+
+     void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+         Gizmos.DrawCube(transform.position,transform.localScale);
+
+
+    }
 }

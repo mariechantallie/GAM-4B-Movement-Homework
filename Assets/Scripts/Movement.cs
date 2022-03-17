@@ -5,12 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
-   const float RayDistance = 10f;
+   const float RayDistance = 2f;
    [SerializeField]KeyCode forward,left, backwards, right;
    [SerializeField]KeyCode jump = KeyCode.Space;
    [SerializeField]float moveSpeed = 500f;
    [SerializeField]float jumpForce = 1000f;
-   float groundCheckDist = 1f;
+   float groundCheckDist = 1.05f;
    Rigidbody rb;
 
 
@@ -29,7 +29,12 @@ public class Movement : MonoBehaviour
      void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawRay(transform.position,transform.position + (transform.forward * RayDistance));
+        Gizmos.DrawLine(transform.position,transform.position + (transform.forward * RayDistance));
+        Gizmos.DrawSphere(transform.position + (transform.forward * RayDistance),.1f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position,transform.position - (Vector3.up* (groundCheckDist)));
+        Gizmos.DrawSphere(transform.position - (Vector3.up* (groundCheckDist)),.1f);
+        
     }
 
     void CheckRays()
@@ -63,6 +68,7 @@ public class Movement : MonoBehaviour
         {                            
             if(Physics.Raycast(transform.position,Vector3.down,groundCheckDist))
             {
+                
                  rb.AddForce(Vector3.up * moveSpeed);
             }
            
